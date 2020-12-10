@@ -4,6 +4,30 @@ const jhonData = {
     "name3": "Alexa Johnson",
     "role": "Visual Designer & Front-End Developer,",
     "ptext": "Creative Designer & Developer located in London.",
+    "overview": {
+      "aboutme": "Overview",
+      "role": "You are never alone",
+      "aboutdetails": "Call for help at any place.  It has wifi for clear calls from inside the house, and 4G LTE for the outside.  It has built in microphone and speaker.  It is supports SIM card to make direct phone call when internet is not available.  It has whitelist features which allows only calls from your list.  No more calls from ",
+      "image": "",
+    },
+    "emergencyservice": {
+      "aboutme": "Emergency Service",
+      "role": "You are never alone",
+      "aboutdetails": "Call for help at any place.  It has wifi for clear calls from inside the house, and 4G LTE for the outside.  It has built in microphone and speaker.  It is supports SIM card to make direct phone call when internet is not available.  It has whitelist features which allows only calls from your list.  No more calls from ",
+      "image": "",
+    },
+    "personaltracking": {
+      "aboutme": "Personal Tracking",
+      "role": "Always know where you are",
+      "aboutdetails": "If your parents were lost, how would you find them?  We can help.  Get the extra assurance.  It has satellite GPS and wifi-GPS to know the precise location of the wearer.  It is water-proof and its batteries last 2 days.",
+      "image": "",
+    },
+    "healthmonitoring": {
+      "aboutme": "Health Monitoring",
+      "role": "Nothing is more important",
+      "aboutdetails": "Be sound in body and mind with a watch that cares for both. Use the stress tracker to watch your stress levels when you're feeling tense, and follow the suggested guided breathing exercises to get some peace of mind. Health monitoring keeps an eye on your heart rate and sends you an alert when it goes above or below normal levels.  ",
+      "image": "",
+    },
     "socialLinks":[
         {
           "name": "Facebook",
@@ -26,7 +50,7 @@ const jhonData = {
             "className":"social_pinterest"
           }
       ],
-      "aboutme": "About Me",
+      "aboutme": "Emergency Service",
       "aboutdetails": "I am Jhone Deo Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever It has survived not only five centuries, but also the leap into electronic but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing",
       "service":[
           {
@@ -74,22 +98,22 @@ const jhonData = {
             {
               id: 1,
               icon: 'icon_pin_alt',
-              text: 'Address: Z105 - Tan Thinh, Thai Nguyen - Viet Nam',
+              text: 'Address: 18881 Von Karman Avenue, Irvine, CA',
             },
             {
               id: 2,
               icon: 'icon_phone',
-              text: 'Phone: +1.900.3456.789',
+              text: 'Phone: 818.934.0758',
             },
             {
               id: 3,
               icon: 'icon_mail',
-              text: 'Email: yourname@somemail.com',
+              text: 'Email: young@bp.watch',
             },
             {
               id: 4,
               icon: 'icon_globe',
-              text: 'Website: http://example.com',
+              text: 'Website: https://bp.watch',
             }
           ]
         },

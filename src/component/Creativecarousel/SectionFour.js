@@ -1,56 +1,67 @@
 import React, { Component } from "react";
-import Reveal from "react-reveal/Reveal/";
-import Form from "../Form";
+import SplitText from "react-pose-text";
+import Detail from "./Detail";
+import jhonData from '../jhonData';
+
 import "./style.scss";
 
+const charPoses = {};
 class SectionFour extends Component {
+
+  constructor(props) {
+    super(props);
+    this.toggleView = this.toggleView.bind(this);
+    this.state = {
+      isMasterView: true,
+    };
+  }
+
+  toggleView(e) {
+    this.setState({isMasterView: !this.state.isMasterView});
+  }
+
   render() {
-    let jhonData = this.props.jhonData;
     return (
-      <div className="section fp-section fp-tabble section_one contact-area">
+      <div className="section fp-section fp-tabble section_one">
         <div className="slider_container">
           <div className="container">
-            <div className="row row-reverse">
-              {jhonData.contact &&
-                jhonData.contact.map((item) => {
-                  return (
-                    <React.Fragment key={item.id}>
-                      <div className="col-md-5">
-                        <Reveal effect="fadeInLeft" duration={500}>
-                          <div className="contact_info">
-                            <h4>{item.title}</h4>
-                            <ul className="nav">
-                              {item.menuItems.map((info) => {
-                                return (
-                                  <li className="item" key={info.id}>
-                                    <div className="media">
-                                      <a href="/#">
-                                        <i className={info.icon}></i>
-                                      </a>
-                                      <div className="media-body">
-                                        <a href="/#">{info.text}</a>
-                                      </div>
-                                    </div>
-                                  </li>
-                                );
-                              })}
-                            </ul>
-                          </div>
-                        </Reveal>
-                      </div>
-                    </React.Fragment>
-                  );
-                })}
-              <div className="col-md-7">
-                <Reveal effect="fadeInRight" duration={800}>
-                  <div className="input_form">
-                    <h4>{jhonData.contacttitle}</h4>
-                    <Form />
-                  </div>
-                </Reveal>
+            <div className="row align-items-center">
+              <div className="col-lg-6">
+                <div className="slider_content slider_content_three">
+                  <h6>
+                    <span className="br"></span>
+                    <SplitText charPoses={charPoses}>Health</SplitText>
+                  </h6>
+                  <h2>
+                    <SplitText charPoses={charPoses}>
+                      Health Monitoring
+                    </SplitText>
+                  </h2>
+                  <p>
+                    We will help you keep your loved ones healthy: Stress, heart rate, ECG, Sleep and Activity. We will alert you when they need attention.
+                  </p>
+                  <a href="#/" className="see_btn" data-text="See Projects" onClick={ this.toggleView }>
+                    See Projects
+                    <span className="arrow">
+                      <span className="line"></span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <div className="col-lg-6">
+                <div className="slider_image_inner">
+                  <span></span>
+                  <img
+                    src={require("../../image/new-page/slider_img4.jpg")}
+                    alt=""
+                  />
+                </div>
               </div>
             </div>
           </div>
+          {
+            !this.state.isMasterView ? <Detail page="healthmonitoring" toggleView={this.toggleView} jhonData={jhonData} imageNo="3" /> : <></>
+          }
         </div>
       </div>
     );

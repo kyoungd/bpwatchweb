@@ -4,6 +4,7 @@ import SectionOne from "./SectionOne";
 import SectionTwo from "./SectionTwo";
 import SectionThree from "./SectionThree";
 import SectionFour from "./SectionFour";
+import SectionFive from "./SectionFive";
 import NavbarThree from "../Navbar/NavbarThree";
 import jhonData from "../jhonData";
 import "./style.scss";
@@ -19,7 +20,8 @@ const FullpageSlider = (fullpageProps) => (
             <SectionOne smallText="Photography" />
             <SectionTwo />
             <SectionThree />
-            <SectionFour jhonData={jhonData} />
+            <SectionFour />
+            <SectionFive jhonData={jhonData} />
           </React.Fragment>
         );
       }}

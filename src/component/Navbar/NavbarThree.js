@@ -60,22 +60,24 @@ class NavbarThree extends Component {
           </div>
           <div className="menu_body">
             <div className="menu_title">
-              <h2>Welcome to John</h2>
+              <h2>Welcome to BP Watch</h2>
               <p>
-                Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-                auctor maecenas.
+                Designed for Seniors. A smartwatch created for your health, safety, and independence.
               </p>
             </div>
             <div className="off_menu">
               <ul id="menu" className="nav">
-                <li data-menuanchor="Hero" className="">
-                  <a href="#Hero">Photography</a>
+                <li data-menuanchor="Watch" className="">
+                  <a href="#Watch">Watch</a>
                 </li>
-                <li data-menuanchor="About" className="">
-                  <a href="#About">Developer</a>
+                <li data-menuanchor="Emergency" className="">
+                  <a href="#Emergency">Emergency</a>
                 </li>
-                <li data-menuanchor="Team" className="">
-                  <a href="#Team">Team</a>
+                <li data-menuanchor="Tracking" className="">
+                  <a href="#Tracking">Tracking</a>
+                </li>
+                <li data-menuanchor="Health" className="">
+                  <a href="#Health">Health</a>
                 </li>
                 <li data-menuanchor="Contact" className="">
                   <a href="#Contact">Contact</a>
@@ -84,8 +86,7 @@ class NavbarThree extends Component {
             </div>
             <div className="copy_right_menu">
               <p>
-                © <a href="/#">John</a> 2020. All Rights Reseverd Design by
-                Blazethemez
+                © <a href="/#">BP.Watch</a> 2020. All Rights Reseverd
               </p>
             </div>
           </div>
