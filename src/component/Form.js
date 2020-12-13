@@ -1,22 +1,18 @@
 import React from "react";
-import emailjs from "emailjs-com";
-import axios from 'axios';
 
 class Form extends React.Component {
   state = {
     errors: {
-      name: "",
-      phone: "",
+      lname: "",
+      fname: "",
       email: "",
-      message: "",
     },
     data: {
-      name: "",
-      phone: "",
+      lname: "",
+      fname: "",
       email: "",
-      message: "",
     },
-    API_URL: "http://192.168.0.17:1337",
+    isSubmitOk: false,
   };
 
   login = async () => {
@@ -68,13 +64,13 @@ class Form extends React.Component {
     const data = this.state.data;
 
     switch (name) {
-      case "name":
-        errors.name = value.length === 0 ? "Name is not empty" : "";
+      case "mce_FNAME":
+        errors.fname = value.length === 0 ? "First Name is not empty" : "";
         break;
-      case "phone":
-        errors.phone = value.length < 5 ? "phone is not empty" : "";
+      case "mce_LNAME":
+        errors.lname = value.length === 0 ? "Last Name is not empty" : "";
         break;
-      case "email":
+      case "mce_EMAIL":
         errors.email = value.length < 5 ? "email is not empty" : "";
         this.setState({ data: { ...this.state.data, "email": value } });
         let appos = value.indexOf("@");
@@ -88,25 +84,26 @@ class Form extends React.Component {
         break;
     }
     this.setState({ ...errors, [name]: value });
-        data[name] = value;
-        this.setState( { data } );
+    data[name] = value;
+    this.setState( { data } );
   };
 
   submitHandler = (e) => {
     e.preventDefault();
+    document["mc-embedded-subscribe-form"].submit();
 
-    this.login().then(token => {
-      console.log(token)
-      this.callApi(axios.post, token, this.state.data).then(() => {
-        alert("subscription added");
-      })
-      .then(result => {
-        console.log(result);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-    });
+    // this.login().then(token => {
+    //   console.log(token)
+    //   this.callApi(axios.post, token, this.state.data).then(() => {
+    //     alert("subscription added");
+    //   })
+    //   .then(result => {
+    //     console.log(result);
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   })
+    // });
 
     // if (
     //   this.state.errors.name.length === 0 &&
@@ -117,72 +114,70 @@ class Form extends React.Component {
     // } else {
     //   alert("form is invalid");
     // }
-    emailjs
-      .sendForm(
-        "gmail",
-        "template_zo1q2mh",
-        e.target,
-        "user_vvQtVRIgqRETJC2JHOJz9"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          alert("form is valid");
-        },
-        (error) => {
-          console.log(error.text);
-          alert("form is invalid");
-        }
-      );
+
+    // emailjs
+    //   .sendForm(
+    //     "gmail",
+    //     "template_zo1q2mh",
+    //     e.target,
+    //     "user_vvQtVRIgqRETJC2JHOJz9"
+    //   )
+    //   .then(
+    //     (result) => {
+    //       console.log(result.text);
+    //       alert("form is valid");
+    //     },
+    //     (error) => {
+    //       console.log(error.text);
+    //       alert("form is invalid");
+    //     }
+    //   );
   };
 
   render() {
     const { errors } = this.state;
     return (
-      <form onSubmit={this.submitHandler.bind(this)} className="form_class">
+      <form onSubmit={this.submitHandler.bind(this)} className="form_class"
+         action="https://watch.us7.list-manage.com/subscribe/post?u=b44c9e936f2966a7a662c37ab&amp;id=0a04a3a8f1" 
+         method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
         <div className="row">
           <div className="col-lg-6">
             <input
               type="text"
-              id="name"
-              name="name"
+              id="mce_FNAME"
+              name="FNAME"
               className="form-control"
-              placeholder="Your Name*"
+              placeholder="First Name*"
               onChange={this.handleChange}
             />
             <p>{errors.name}</p>
           </div>
           <div className="col-lg-6">
             <input
-              type="email"
+              type="text"
               className="form-control"
-              id="email"
-              name="email"
+              id="mce_LNAME"
+              name="LNAME"
+              placeholder="Last Name*"
+              onChange={this.handleChange}
+            />
+            <p>{errors.phone}</p>
+          </div>
+          <div className="col-lg-6">
+            <input
+              type="EMAIL"
+              className="form-control"
+              id="mce_EMAIL"
+              name="EMAIL"
               placeholder="Your Email*"
               onChange={this.handleChange}
             />
             <p>{errors.email}</p>
           </div>
-          <div className="col-lg-6">
-            <input
-              type="text"
-              className="form-control"
-              id="phone"
-              name="phone"
-              placeholder="Phone*"
-              onChange={this.handleChange}
-            />
-            <p>{errors.phone}</p>
-          </div>
         </div>
-        <textarea
-          name="message"
-          id="message"
-          className="form-control"
-          rows="6"
-          placeholder="Your Message ..."
-          onChange={this.handleChange}
-        ></textarea>
+        <div className="hidden-field" aria-hidden="true">
+          <input type="text" name="b_b44c9e936f2966a7a662c37ab_0a04a3a8f1" tabindex="-1" value="" />
+        </div>
         <button type="submit" className="btn send_btn theme_btn">
           Send Message
         </button>
