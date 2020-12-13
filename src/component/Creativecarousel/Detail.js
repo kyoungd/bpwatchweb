@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import {Fade, Reveal} from 'react-reveal/';
 
 const Detail = (props) => {
     const { page, toggleView, jhonData, imageNo } = props;
     const data = jhonData[page];
-    const imageName = '../../image/apporoach_man_img.png';
+//    const imageName = '../../image/apporoach_man_img.png';
     const allImages = [
         require('../../image/apporoach_man_img.png'), 
         require('../../image/ambulance.png'), 

@@ -39,7 +39,7 @@ class SectionTwo extends Component {
                   <p>
                     Be there when it counts. Get them the help they need when they need them.
                   </p>
-                  <a href="#" className="see_btn" data-text="See Projects" onClick={this.toggleView}>
+                  <a href="#/" className="see_btn" data-text="See Projects" onClick={this.toggleView}>
                     See Projects
                     <span className="arrow">
                       <span className="line"></span>
