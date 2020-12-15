@@ -8,9 +8,9 @@ class Form extends React.Component {
       email: "",
     },
     data: {
-      lname: "",
-      fname: "",
-      email: "",
+      LNAME: "",
+      FNAME: "",
+      EMAIL: "",
     },
     isSubmitOk: false,
   };
@@ -57,6 +57,16 @@ class Form extends React.Component {
     return response;
   }
 
+  validateEmail = (email) => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  validateName = (name) => {
+    const re = /^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/;
+    return re.test(String(name).toLowerCase());
+  }
+
   handleChange = (event) => {
     let name = event.target.name;
     let value = event.target.value;
@@ -64,21 +74,14 @@ class Form extends React.Component {
     const data = this.state.data;
 
     switch (name) {
-      case "mce_FNAME":
-        errors.fname = value.length === 0 ? "First Name is not empty" : "";
+      case "FNAME":
+        errors.fname = !this.validateName(value) ? "*****" : "";
         break;
-      case "mce_LNAME":
-        errors.lname = value.length === 0 ? "Last Name is not empty" : "";
+      case "LNAME":
+        errors.lname = !this.validateName(value) ? "*****" : "";
         break;
-      case "mce_EMAIL":
-        errors.email = value.length < 5 ? "email is not empty" : "";
-        this.setState({ data: { ...this.state.data, "email": value } });
-        let appos = value.indexOf("@");
-        let dots = value.lastIndexOf(".");
-
-        if (appos < 1 || dots - appos < 2) {
-          errors.email = "please enter valid email";
-        }
+      case "EMAIL":
+        errors.email = !this.validateEmail(value) ? "*****" : "";
         break;
       default:
         break;
@@ -88,9 +91,20 @@ class Form extends React.Component {
     this.setState( { data } );
   };
 
+  isValidateData = () => {
+    const { data, errors } = this.state;
+
+    errors.fname = !this.validateName(data.FNAME) ? "*****" : "";
+    errors.lname = !this.validateName(data.LNAME) ? "*****" : "";
+    errors.email = !this.validateEmail(data.EMAIL) ? "*****" : "";
+    this.setState({ errors });
+    return ((errors.fname === '') && (errors.lname === '') && (errors.email === ''))
+  };
+
   submitHandler = (e) => {
     e.preventDefault();
-    document["mc-embedded-subscribe-form"].submit();
+    if (this.isValidateData())
+      document["mc-embedded-subscribe-form"].submit();
 
     // this.login().then(token => {
     //   console.log(token)
@@ -150,7 +164,7 @@ class Form extends React.Component {
               placeholder="First Name*"
               onChange={this.handleChange}
             />
-            <p>{errors.name}</p>
+            <p>{errors.fname}</p>
           </div>
           <div className="col-lg-6">
             <input
@@ -161,7 +175,7 @@ class Form extends React.Component {
               placeholder="Last Name*"
               onChange={this.handleChange}
             />
-            <p>{errors.phone}</p>
+            <p>{errors.lname}</p>
           </div>
           <div className="col-lg-6">
             <input

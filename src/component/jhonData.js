@@ -6,20 +6,20 @@ const jhonData = {
     "ptext": "Creative Designer & Developer located in London.",
     "overview": {
       "aboutme": "Overview",
-      "role": "You are never alone",
-      "aboutdetails": "Call for help at any place.  It has wifi for clear calls from inside the house, and 4G LTE for the outside.  It has built in microphone and speaker.  It is supports SIM card to make direct phone call when internet is not available.  It has whitelist features which allows only calls from your list.  No more calls from ",
+      "role": "What we are?",
+      "aboutdetails": "As a concerned son, I created this service for aging parents everywhere.  It is designed to keep them safe, healthy, and connected.  It will help them to maintain their independence. Our service includes automatic setup and an affordable wireless plan.  The watch is waterproof, comfortable to wear, and has a 2-day battery.",
       "image": "",
     },
     "emergencyservice": {
       "aboutme": "Emergency Service",
       "role": "You are never alone",
-      "aboutdetails": "Call for help at any place.  It has wifi for clear calls from inside the house, and 4G LTE for the outside.  It has built in microphone and speaker.  It is supports SIM card to make direct phone call when internet is not available.  It has whitelist features which allows only calls from your list.  No more calls from ",
+      "aboutdetails": "Call for help at any place.  It has wifi for clear calls from inside the house and 4G LTE for the outside.  It has a built-in microphone and speaker.  It supports SIM cards to make a direct phone call when the internet is not available.  It has whitelist features that allow only calls from your list—no more calls from sleazy crooks who prey on senior citizens.",
       "image": "",
     },
     "personaltracking": {
       "aboutme": "Personal Tracking",
       "role": "Always know where you are",
-      "aboutdetails": "If your parents were lost, how would you find them?  We can help.  Get the extra assurance.  It has satellite GPS and wifi-GPS to know the precise location of the wearer.  It is water-proof and its batteries last 2 days.",
+      "aboutdetails": "If your parents were lost, how would you find them?  We can help.  Get extra assurance.  It has satellite GPS and wifi-GPS to know the precise location of the wearer.  It is water-proof and its batteries last 2 days.",
       "image": "",
     },
     "healthmonitoring": {
